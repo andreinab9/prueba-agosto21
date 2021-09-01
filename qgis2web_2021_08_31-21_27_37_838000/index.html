@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/CUERPOSDEAGUA_0.js"></script>
+        <script src="data/CURSOSDEAGUAMAIPO_1.js"></script>
+        <script src="data/19760315_2.js"></script>
+        <script src="data/19890419_3.js"></script>
+        <script src="data/19950319_4.js"></script>
+        <script src="data/19990226_5.js"></script>
+        <script src="data/20010319_6.js"></script>
+        <script src="data/20040327_7.js"></script>
+        <script src="data/20070320_8.js"></script>
+        <script src="data/20100413_9.js"></script>
+        <script src="data/20110331_10.js"></script>
+        <script src="data/20130421_11.js"></script>
+        <script src="data/20180214_12.js"></script>
+        <script src="data/20190406_13.js"></script>
+        <script src="data/20200204_14.js"></script>
+        <script src="data/CurvasdeNivel_16.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-34.3032177083,-69.9170336501],[-33.9820876386,-69.2295131243]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash;Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_CUERPOSDEAGUA_0(feature, layer) {
+        }
+
+        function style_CUERPOSDEAGUA_0_0() {
+            return {
+                pane: 'pane_CUERPOSDEAGUA_0',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(50,182,225,1.0)',
+            }
+        }
+        map.createPane('pane_CUERPOSDEAGUA_0');
+        map.getPane('pane_CUERPOSDEAGUA_0').style.zIndex = 400;
+        map.getPane('pane_CUERPOSDEAGUA_0').style['mix-blend-mode'] = 'normal';
+        var layer_CUERPOSDEAGUA_0 = new L.geoJson(json_CUERPOSDEAGUA_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_CUERPOSDEAGUA_0',
+            onEachFeature: pop_CUERPOSDEAGUA_0,
+            style: style_CUERPOSDEAGUA_0_0,
+        });
+        bounds_group.addLayer(layer_CUERPOSDEAGUA_0);
+        map.addLayer(layer_CUERPOSDEAGUA_0);
+        function pop_CURSOSDEAGUAMAIPO_1(feature, layer) {
+        }
+
+        function style_CURSOSDEAGUAMAIPO_1_0(feature) {
+            switch(String(feature.properties['TiPO'])) {
+                case 'Perenne':
+                    return {
+                pane: 'pane_CURSOSDEAGUAMAIPO_1',
+                opacity: 1,
+                color: 'rgba(46,29,203,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Temporales Efimeros':
+                    return {
+                pane: 'pane_CURSOSDEAGUAMAIPO_1',
+                opacity: 1,
+                color: 'rgba(22,219,193,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Temporales Intermite':
+                    return {
+                pane: 'pane_CURSOSDEAGUAMAIPO_1',
+                opacity: 1,
+                color: 'rgba(9,161,255,0.223529)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_CURSOSDEAGUAMAIPO_1');
+        map.getPane('pane_CURSOSDEAGUAMAIPO_1').style.zIndex = 401;
+        map.getPane('pane_CURSOSDEAGUAMAIPO_1').style['mix-blend-mode'] = 'normal';
+        var layer_CURSOSDEAGUAMAIPO_1 = new L.geoJson(json_CURSOSDEAGUAMAIPO_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_CURSOSDEAGUAMAIPO_1',
+            onEachFeature: pop_CURSOSDEAGUAMAIPO_1,
+            style: style_CURSOSDEAGUAMAIPO_1_0,
+        });
+        bounds_group.addLayer(layer_CURSOSDEAGUAMAIPO_1);
+        map.addLayer(layer_CURSOSDEAGUAMAIPO_1);
+        function pop_19760315_2(feature, layer) {
+        }
+
+        function style_19760315_2_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '9.6':
+                    return {
+                pane: 'pane_19760315_2',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(2,22,201,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_19760315_2');
+        map.getPane('pane_19760315_2').style.zIndex = 402;
+        map.getPane('pane_19760315_2').style['mix-blend-mode'] = 'normal';
+        var layer_19760315_2 = new L.geoJson(json_19760315_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_19760315_2',
+            onEachFeature: pop_19760315_2,
+            style: style_19760315_2_0,
+        });
+        bounds_group.addLayer(layer_19760315_2);
+        map.addLayer(layer_19760315_2);
+        function pop_19890419_3(feature, layer) {
+        }
+
+        function style_19890419_3_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '7.6':
+                    return {
+                pane: 'pane_19890419_3',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(57,98,50,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_19890419_3');
+        map.getPane('pane_19890419_3').style.zIndex = 403;
+        map.getPane('pane_19890419_3').style['mix-blend-mode'] = 'normal';
+        var layer_19890419_3 = new L.geoJson(json_19890419_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_19890419_3',
+            onEachFeature: pop_19890419_3,
+            style: style_19890419_3_0,
+        });
+        bounds_group.addLayer(layer_19890419_3);
+        map.addLayer(layer_19890419_3);
+        function pop_19950319_4(feature, layer) {
+        }
+
+        function style_19950319_4_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '7':
+                    return {
+                pane: 'pane_19950319_4',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(228,31,97,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_19950319_4');
+        map.getPane('pane_19950319_4').style.zIndex = 404;
+        map.getPane('pane_19950319_4').style['mix-blend-mode'] = 'normal';
+        var layer_19950319_4 = new L.geoJson(json_19950319_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_19950319_4',
+            onEachFeature: pop_19950319_4,
+            style: style_19950319_4_0,
+        });
+        bounds_group.addLayer(layer_19950319_4);
+        map.addLayer(layer_19950319_4);
+        function pop_19990226_5(feature, layer) {
+        }
+
+        function style_19990226_5_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '6.5':
+                    return {
+                pane: 'pane_19990226_5',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(128,234,210,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_19990226_5');
+        map.getPane('pane_19990226_5').style.zIndex = 405;
+        map.getPane('pane_19990226_5').style['mix-blend-mode'] = 'normal';
+        var layer_19990226_5 = new L.geoJson(json_19990226_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_19990226_5',
+            onEachFeature: pop_19990226_5,
+            style: style_19990226_5_0,
+        });
+        bounds_group.addLayer(layer_19990226_5);
+        map.addLayer(layer_19990226_5);
+        function pop_20010319_6(feature, layer) {
+        }
+
+        function style_20010319_6_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '6.3':
+                    return {
+                pane: 'pane_20010319_6',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,217,83,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20010319_6');
+        map.getPane('pane_20010319_6').style.zIndex = 406;
+        map.getPane('pane_20010319_6').style['mix-blend-mode'] = 'normal';
+        var layer_20010319_6 = new L.geoJson(json_20010319_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20010319_6',
+            onEachFeature: pop_20010319_6,
+            style: style_20010319_6_0,
+        });
+        bounds_group.addLayer(layer_20010319_6);
+        map.addLayer(layer_20010319_6);
+        function pop_20040327_7(feature, layer) {
+        }
+
+        function style_20040327_7_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '6.1':
+                    return {
+                pane: 'pane_20040327_7',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(173,216,124,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20040327_7');
+        map.getPane('pane_20040327_7').style.zIndex = 407;
+        map.getPane('pane_20040327_7').style['mix-blend-mode'] = 'normal';
+        var layer_20040327_7 = new L.geoJson(json_20040327_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20040327_7',
+            onEachFeature: pop_20040327_7,
+            style: style_20040327_7_0,
+        });
+        bounds_group.addLayer(layer_20040327_7);
+        map.addLayer(layer_20040327_7);
+        function pop_20070320_8(feature, layer) {
+        }
+
+        function style_20070320_8_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '6.1':
+                    return {
+                pane: 'pane_20070320_8',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(159,210,4,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20070320_8');
+        map.getPane('pane_20070320_8').style.zIndex = 408;
+        map.getPane('pane_20070320_8').style['mix-blend-mode'] = 'normal';
+        var layer_20070320_8 = new L.geoJson(json_20070320_8, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20070320_8',
+            onEachFeature: pop_20070320_8,
+            style: style_20070320_8_0,
+        });
+        bounds_group.addLayer(layer_20070320_8);
+        map.addLayer(layer_20070320_8);
+        function pop_20100413_9(feature, layer) {
+        }
+
+        function style_20100413_9_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '6':
+                    return {
+                pane: 'pane_20100413_9',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(81,60,200,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20100413_9');
+        map.getPane('pane_20100413_9').style.zIndex = 409;
+        map.getPane('pane_20100413_9').style['mix-blend-mode'] = 'normal';
+        var layer_20100413_9 = new L.geoJson(json_20100413_9, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20100413_9',
+            onEachFeature: pop_20100413_9,
+            style: style_20100413_9_0,
+        });
+        bounds_group.addLayer(layer_20100413_9);
+        map.addLayer(layer_20100413_9);
+        function pop_20110331_10(feature, layer) {
+        }
+
+        function style_20110331_10_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '5.6':
+                    return {
+                pane: 'pane_20110331_10',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(172,39,58,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20110331_10');
+        map.getPane('pane_20110331_10').style.zIndex = 410;
+        map.getPane('pane_20110331_10').style['mix-blend-mode'] = 'normal';
+        var layer_20110331_10 = new L.geoJson(json_20110331_10, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20110331_10',
+            onEachFeature: pop_20110331_10,
+            style: style_20110331_10_0,
+        });
+        bounds_group.addLayer(layer_20110331_10);
+        map.addLayer(layer_20110331_10);
+        function pop_20130421_11(feature, layer) {
+        }
+
+        function style_20130421_11_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '5.2':
+                    return {
+                pane: 'pane_20130421_11',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,112,191,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20130421_11');
+        map.getPane('pane_20130421_11').style.zIndex = 411;
+        map.getPane('pane_20130421_11').style['mix-blend-mode'] = 'normal';
+        var layer_20130421_11 = new L.geoJson(json_20130421_11, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20130421_11',
+            onEachFeature: pop_20130421_11,
+            style: style_20130421_11_0,
+        });
+        bounds_group.addLayer(layer_20130421_11);
+        map.addLayer(layer_20130421_11);
+        function pop_20180214_12(feature, layer) {
+        }
+
+        function style_20180214_12_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '4.6':
+                    return {
+                pane: 'pane_20180214_12',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,232,8,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20180214_12');
+        map.getPane('pane_20180214_12').style.zIndex = 412;
+        map.getPane('pane_20180214_12').style['mix-blend-mode'] = 'normal';
+        var layer_20180214_12 = new L.geoJson(json_20180214_12, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20180214_12',
+            onEachFeature: pop_20180214_12,
+            style: style_20180214_12_0,
+        });
+        bounds_group.addLayer(layer_20180214_12);
+        map.addLayer(layer_20180214_12);
+        function pop_20190406_13(feature, layer) {
+        }
+
+        function style_20190406_13_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '4.3':
+                    return {
+                pane: 'pane_20190406_13',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,4,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20190406_13');
+        map.getPane('pane_20190406_13').style.zIndex = 413;
+        map.getPane('pane_20190406_13').style['mix-blend-mode'] = 'normal';
+        var layer_20190406_13 = new L.geoJson(json_20190406_13, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20190406_13',
+            onEachFeature: pop_20190406_13,
+            style: style_20190406_13_0,
+        });
+        bounds_group.addLayer(layer_20190406_13);
+        map.addLayer(layer_20190406_13);
+        function pop_20200204_14(feature, layer) {
+        }
+
+        function style_20200204_14_0(feature) {
+            switch(String(feature.properties['Área_km2'])) {
+                case '3.6':
+                    return {
+                pane: 'pane_20200204_14',
+                stroke: false, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,96,7,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_20200204_14');
+        map.getPane('pane_20200204_14').style.zIndex = 414;
+        map.getPane('pane_20200204_14').style['mix-blend-mode'] = 'normal';
+        var layer_20200204_14 = new L.geoJson(json_20200204_14, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_20200204_14',
+            onEachFeature: pop_20200204_14,
+            style: style_20200204_14_0,
+        });
+        bounds_group.addLayer(layer_20200204_14);
+        map.addLayer(layer_20200204_14);
+        var overlay_StamenTerrain_15 = L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        overlay_StamenTerrain_15.addTo(map);
+        map.addLayer(overlay_StamenTerrain_15);
+        function pop_CurvasdeNivel_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? Autolinker.link(String(feature.properties['OBJECTID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Id'] !== null ? Autolinker.link(String(feature.properties['Id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Contour'] !== null ? Autolinker.link(String(feature.properties['Contour'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? Autolinker.link(String(feature.properties['Shape_Leng'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CurvasdeNivel_16_0(feature) {
+            switch(String(feature.properties['Contour'])) {
+                case '4000':
+                    return {
+                pane: 'pane_CurvasdeNivel_16',
+                opacity: 1,
+                color: 'rgba(11,8,8,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1,
+                fillOpacity: 0,
+            }
+                    break;
+                case '4500':
+                    return {
+                pane: 'pane_CurvasdeNivel_16',
+                opacity: 1,
+                color: 'rgba(5,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1,
+                fillOpacity: 0,
+            }
+                    break;
+                case '5000':
+                    return {
+                pane: 'pane_CurvasdeNivel_16',
+                opacity: 1,
+                color: 'rgba(5,5,5,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1,
+                fillOpacity: 0,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_CurvasdeNivel_16');
+        map.getPane('pane_CurvasdeNivel_16').style.zIndex = 416;
+        map.getPane('pane_CurvasdeNivel_16').style['mix-blend-mode'] = 'normal';
+        var layer_CurvasdeNivel_16 = new L.geoJson(json_CurvasdeNivel_16, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_CurvasdeNivel_16',
+            onEachFeature: pop_CurvasdeNivel_16,
+            style: style_CurvasdeNivel_16_0,
+        });
+        bounds_group.addLayer(layer_CurvasdeNivel_16);
+        map.addLayer(layer_CurvasdeNivel_16);
+        setBounds();
+        </script>
+    </body>
+</html>
